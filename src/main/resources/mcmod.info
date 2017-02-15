@@ -1,0 +1,10 @@
+[{
+    "modid": "mod_regenerator",
+    "name": "Mod Regenerator",
+    "version": "1.0-SNAPSHOT",
+    "description": "A Minecraft Sponge plugin that helps to regenerate the thing in new mods you added.",
+    "authorList": [
+		"EntropyIncreaser",
+        "Lasm_Gratel"
+    ]
+}]
