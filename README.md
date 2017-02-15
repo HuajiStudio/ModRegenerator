@@ -1,2 +1,2 @@
 # ModRegenerator
-A Minecraft Bukkit java plugin to regenerate the thing in new mods you added.
+A Minecraft Sponge plugin that helps to regenerate the thing in new mods you added.

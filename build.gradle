@@ -1,0 +1,33 @@
+plugins {
+    id 'org.spongepowered.plugin' version '0.6'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'signing'
+
+def signings = new Properties()
+file("signing.properties").withInputStream { signings.load(it) }
+
+import org.gradle.plugins.signing.Sign
+
+gradle.taskGraph.whenReady { taskGraph ->
+    if (taskGraph.allTasks.any { it instanceof Sign }) {
+        allprojects { ext."signing.keyId" = signings.getProperty("signing.keyId") }
+        allprojects { ext."signing.secretKeyRingFile" = signings.getProperty("signing.secretKeyRingFile") }
+        allprojects { ext."signing.password" = signings.getProperty("signing.password") }
+	}
+}
+
+group = 'cc.lasmgratel'
+version = '1.0-SNAPSHOT'
+description = 'QuickShop in Sponge'
+
+dependencies {
+    compile 'org.spongepowered:spongeapi:5.0.0'
+}
+
+signing {
+    sign configurations.archives
+}
